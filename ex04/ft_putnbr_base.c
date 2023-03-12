@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabelo- <arabelo-@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: arabelo- <arabelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 11:02:58 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/03/12 14:34:57 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:42:17 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,4 @@ void	ft_putnbr_base(int nbr, char *base)
 		base_len++;
 	}
 	iteration(nbr, base, i, base_len);
-}
-
-int main(void)
-{
-    ft_putnbr_base(42, "0123456789");
-    put_char('\n');
-    ft_putnbr_base(42, "01");
-    put_char('\n');
-    ft_putnbr_base(42, "0123456789abcdef");
-    return (0);
 }
