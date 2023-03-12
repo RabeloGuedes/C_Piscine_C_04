@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 11:02:58 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/03/12 13:58:28 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:34:57 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,24 @@ void	put_char(char c)
 	write(1, &c, 1);
 }
 
-
 void	base_conversion(int nbr, int base_len, char *base)
 {
-	if (nbr > base_len)
-		base_conversion(nbr / base_len, base_len, base)l
+	if (nbr > base_len - 1)
+		base_conversion(nbr / base_len, base_len, base);
 	put_char(base[nbr % base_len]);
+}
+
+void	iteration(int nbr, char *base, int i, int base_len)
+{
+	if (base_len > 1 && base[i] != '+' && base[i] != '-')
+	{
+		if (nbr < 0)
+		{
+			nbr = -nbr;
+			put_char('-');
+		}
+		base_conversion(nbr, base_len, base);
+	}
 }
 
 void	ft_putnbr_base(int nbr, char *base)
@@ -39,18 +51,21 @@ void	ft_putnbr_base(int nbr, char *base)
 		while (base[i2])
 		{
 			if (base[i] == base[i2])
-				return;
+				return ;
+			i2++;
 		}
 		i++;
 		base_len++;
 	}
-	if (base_len > 1 && base[i] != '+' && base[i] != '-')
-	{
-		if (nbr < 0)
-		{
-			nbr = -nbr;
-			put_char('-');
-		}
-		base_conversion(nbr, (base_len - 1), base);
-	}
+	iteration(nbr, base, i, base_len);
+}
+
+int main(void)
+{
+    ft_putnbr_base(42, "0123456789");
+    put_char('\n');
+    ft_putnbr_base(42, "01");
+    put_char('\n');
+    ft_putnbr_base(42, "0123456789abcdef");
+    return (0);
 }
