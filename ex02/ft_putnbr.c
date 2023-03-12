@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:15:50 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/03/10 11:28:58 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/03/12 21:34:18 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_putnbr(int nb)
 	}
 	else if (nb < 0)
 	{
+		ft_putchar('-');
 		ft_putnbr(-nb);
 	}
 	else if (nb > 9)
